@@ -4,16 +4,14 @@ import java.net.*;
 import java.io.*;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
-       URL aURL = new URL("http://java.sun.com:80/docs/books/tutorial" + "/index.html?name=networking#DOWNLOADING");
-       System.out.println("protocol = " + aURL.getProtocol());
-        System.out.println("authority = " + aURL.getAuthority());
-        System.out.println("host = " + aURL.getHost());
-        System.out.println("port = " + aURL.getPort());
-        System.out.println("path = " + aURL.getPath());
-        System.out.println("query = " + aURL.getQuery());
-        System.out.println("filename = " + aURL.getFile());
-        System.out.println("ref = " + aURL.getRef());
+    public static void main(String args[])  {
+       Socket socket = null;
+       try {
+           socket = new Socket("localhost", 3456);
+           BufferedReader dis = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+           String msg = dis.readLine();
+           System.out.println(msg);
+       }catch (IOException e){System.out.println("Ошибка:" + e);}
 
     }
 }
