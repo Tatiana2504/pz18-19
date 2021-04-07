@@ -4,11 +4,11 @@ import java.net.*;
 
 public class Main {
     public static void main(String[] args) {
-       InetAddress myIP = null;
+       InetAddress bsu = null;
        try{
-           myIP = InetAddress.getLocalHost();}
+           bsu = InetAddress.getByName("www.sutkt.ru");}
        catch (UnknownHostException e){}
-       System.out.println(myIP);
+       System.out.println(bsu);
 
     }
 }
