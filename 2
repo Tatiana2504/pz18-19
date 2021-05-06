@@ -1,0 +1,19 @@
+package com.metanit;
+
+import java.io.*;
+import java.net.*;
+public class Server {
+    public static void main(String[] args) {
+        Socket s = null;
+        try {
+            Serversocket server = new ServerSocket(3456);
+            s = server.accept();
+            PrintStream ps = new PrintStream(s.getOutputStream());
+            ps.println("Лабораторная работа выполнена!");
+            ps.flush();
+            s.close();
+        } catch (IOException e) {
+            System.out.println("Ошибка:" + e);
+        }
+    }
+}
